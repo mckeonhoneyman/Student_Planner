@@ -1,5 +1,6 @@
 .calendar-container {
     display: flex;
+    justify-content: center; /* made a change here */
   }
   
   .calendar {
@@ -60,6 +61,9 @@
   .calendar-grid-cell {
     padding: 30px;
     display: flex;
+    flex-direction: column;
+    align-items: flex-start;   /* <-- align to the top vertically */
+    justify-content: flex-start; 
     border-bottom: 1px solid #005643;
     border-right: 1px solid #005643;;
   }
