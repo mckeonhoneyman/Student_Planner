@@ -11,24 +11,4 @@
         </div>
     </div>
 
-    <!-- THIS NEEDS MORE FORMATTING TO MAKE IT LOOK PRETTY. should prolly be done in app.component.css -->
-    <div style="text-align: right;">
-        <button (click)="setSelectedView('month')">Month</button>
-        <button (click)="setSelectedView('week')">Week</button>
-        <button (click)="setSelectedView('day')">Day</button>
-    </div>
-    
-<!-- decides what view to display based on the selected button -->
-    <div *ngIf="selectedView === 'month'">
-        <calendar></calendar>
-    </div>
-
-    <div *ngIf="selectedView === 'week'">
-        
-    </div>
-
-    <div *ngIf="selectedView === 'day'">
-        
-    </div>
-
-</div>
+    <calendar></calendar>

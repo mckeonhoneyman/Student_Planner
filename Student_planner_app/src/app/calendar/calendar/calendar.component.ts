@@ -61,5 +61,8 @@ export class CalendarComponent {
   dayDate: Signal<DateTime> = computed(() => {
     return this.activeDay() ?? this.today();
   });
+
+  selectedView: WritableSignal<'month' | 'week' | 'day'> = signal('month');
+
   
 }

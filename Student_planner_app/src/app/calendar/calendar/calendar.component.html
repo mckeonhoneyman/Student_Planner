@@ -1,3 +1,16 @@
+<div class="view-buttons">
+  <button 
+    (click)="selectedView.set('month')" 
+    [class.active]="selectedView() === 'month'">Month</button>
+  <button 
+    (click)="selectedView.set('week')" 
+    [class.active]="selectedView() === 'week'">Week</button>
+  <button 
+    (click)="selectedView.set('day')" 
+    [class.active]="selectedView() === 'day'">Day</button>
+</div>
+
+<div *ngIf="selectedView() === 'month'">
 <div class="calendar-container">
   <div class="calendar">
     <div class="calendar-headline">
@@ -41,8 +54,9 @@
     </div>
   </div>
 </div>
+</div>
 
-
+<div *ngIf="selectedView() === 'week'">
 <div class="week-view-container">
   <div class="week-view-header">
     <div class="time-column-header"></div>
@@ -62,8 +76,10 @@
     </div>
   </div>
 </div>
+</div>
 
 
+<div *ngIf="selectedView() === 'day'">
 <div class="day-view-container">
   <h2>{{ dayDate().toFormat('cccc, LLLL dd') }}</h2>
   <div class="day-view-body">
@@ -72,4 +88,5 @@
       <div class="day-slot"></div> 
     </div>
   </div>
+</div>
 </div>
