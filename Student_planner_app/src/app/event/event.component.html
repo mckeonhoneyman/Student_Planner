@@ -1,0 +1,64 @@
+<div>
+  <form>
+    <h1>Add Event</h1>
+    Name: <input type="text" ng-model="eventName">
+    <div>
+      <select ng-model="categories">
+        <option value="category">Category</option>
+        <option value="work">Work</option>
+        <option value="class">Class</option>
+        <option value="homework">Homework</option>
+        <option value="test">Test</option>
+        <option value="exam">Exam</option>
+        <option value="meeting">Meeting</option>
+        <option value="clubs">Clubs</option>
+        <option value="study">Study</option>
+        <option value="break">Break</option>
+        <option value="other">other</option>
+      </select>
+    </div>
+    <div>
+      <select ng-model="colors">
+        <option value="color">Color</option>
+        <option value="red">Red</option>
+        <option value="blue">Blue</option>
+        <option value="orange">Orange</option>
+        <option value="goldenYellow">Golden Yellow</option>
+        <option value="green">Green</option>
+        <option value="purple">Purple</option>
+        <option value="cyan">Cyan</option>
+        <option value="grey">Grey</option>
+        <option value="brown">Brown</option>
+      </select>
+    </div>
+    <div>
+      Date: <input type="text" ng-model="eventDate">
+    </div>
+    <div>
+      Start time: <input type="text" ng-model="eventSTime">
+    </div>
+    <div>
+      End time: <input type="text" ng-model="eventETime">
+    </div>
+    <div>
+      <select ng-model="recuring">
+        <option value="recuringPeriod">Recuring Period</option>
+        <option value="none">None</option>
+        <option value="daily">Daily</option>
+        <option value="weekly">Every Week</option>
+        <option value="biweekly">Every other week</option>
+        <option value="monthly">Every Month</option>
+      </select>
+    </div>
+    <div>
+      End Date: <input type="text" ng-model="eventEDate">
+    </div>
+    <div>Discription:</div>
+    <div>
+      <textarea ng-model="description" placeholder="(optional)"></textarea>
+    </div>
+    <div>
+      <button (click)="saveEvent(eventName,date,sTime,eTime,recurring,eDate,description,category,color)">Save</button>
+    </div>
+  </form>
+</div>
