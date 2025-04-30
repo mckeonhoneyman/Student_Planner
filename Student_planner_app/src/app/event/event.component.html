@@ -1,10 +1,10 @@
 <div>
   <form>
     <h1>Add Event</h1>
-    Name: <input type="text" ng-model="eventName">
+    Name: <input type="text" #eName>
     <div>
-      <select ng-model="categories">
-        <option value="category">Category</option>
+      <select #categories>
+        <option value="noCategory">Category</option>
         <option value="work">Work</option>
         <option value="class">Class</option>
         <option value="homework">Homework</option>
@@ -18,8 +18,8 @@
       </select>
     </div>
     <div>
-      <select ng-model="colors">
-        <option value="color">Color</option>
+      <select #colors>
+        <option value="noColor">Color</option>
         <option value="red">Red</option>
         <option value="blue">Blue</option>
         <option value="orange">Orange</option>
@@ -32,16 +32,16 @@
       </select>
     </div>
     <div>
-      Date: <input type="text" ng-model="eventDate">
+      Date: <input type="date" #eventdate>
     </div>
     <div>
-      Start time: <input type="text" ng-model="eventSTime">
+      Start time: <input type="time" #startTime>
     </div>
     <div>
-      End time: <input type="text" ng-model="eventETime">
+      End time: <input type="time" #endTime>
     </div>
     <div>
-      <select ng-model="recuring">
+      <select #recuring>
         <option value="recuringPeriod">Recuring Period</option>
         <option value="none">None</option>
         <option value="daily">Daily</option>
@@ -51,14 +51,17 @@
       </select>
     </div>
     <div>
-      End Date: <input type="text" ng-model="eventEDate">
+      End Date: <input type="date" #endDate>
     </div>
     <div>Discription:</div>
     <div>
-      <textarea ng-model="description" placeholder="(optional)"></textarea>
+      <textarea #eventDescription placeholder="(optional)"></textarea>
     </div>
     <div>
-      <button (click)="saveEvent(eventName,date,sTime,eTime,recurring,eDate,description,category,color)">Save</button>
+      <button (click)="saveEvent(eName.value,eventdate.value ,startTime.value ,endTime.value,recuring.value,endDate.value,eventDescription.value ,categories.value ,colors.value)">Save</button>
     </div>
+    <!-- for testing if the events are saving propperly
+    <div>{{numOfEvents}}<p *ngFor="let event of events; let i =index; ">{{events[i].category}}</p></div>
+    -->
   </form>
 </div>
