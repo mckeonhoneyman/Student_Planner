@@ -1,12 +1,4 @@
-import {
-  Component,
-  InputSignal,
-  Signal,
-  WritableSignal,
-  computed,
-  input,
-  signal,
-} from '@angular/core';
+import { Component,InputSignal,Signal,WritableSignal,computed,input,signal, } from '@angular/core';
 import { DateTime, Info, Interval } from 'luxon';
 import { CommonModule } from '@angular/common';
 
@@ -21,7 +13,7 @@ export class CalendarComponent {
   today: Signal<DateTime> = signal(DateTime.local());
   firstDayOfActiveMonth: WritableSignal<DateTime> = signal(
     this.today().startOf('month'),
-  );
+  )
   activeDay: WritableSignal<DateTime | null> = signal(null);
   weekDays: Signal<string[]> = signal(Info.weekdays('short'));
   daysOfMonth: Signal<DateTime[]> = computed(() => {
@@ -53,4 +45,21 @@ export class CalendarComponent {
   goToToday(): void {
     this.firstDayOfActiveMonth.set(this.today().startOf('month'));
   }
+
+  hours: string[] = Array.from({ length: 24 }, (_, i) =>
+    DateTime.fromObject({ hour: i }).toFormat('h a')
+  );
+
+  //Returns the date of the first day of the week (Sunday) for the active day or today if no active day is set
+  weekDates: Signal<DateTime[]> = computed(() => {
+    const referenceDay = this.activeDay() ?? this.today();
+    const startOfWeek = referenceDay.startOf('week');
+    return Array.from({ length: 7 }, (_, i) => startOfWeek.plus({ days: i }));
+  });
+  
+  //Returns the date of the active day or today if no active day is set
+  dayDate: Signal<DateTime> = computed(() => {
+    return this.activeDay() ?? this.today();
+  });
+  
 }
