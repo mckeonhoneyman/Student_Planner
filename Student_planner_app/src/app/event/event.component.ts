@@ -40,10 +40,7 @@ export class EventComponent implements event{
 
 
   saveEvent(eventName:string,date:number,sTime:number,eTime:number,recurring?:string,eDate?:number,description?:string,category?:string,color?:string):void{
-    console.log("step 1 works")
     this.events[this.numOfEvents]=({id:this.numOfEvents++,eventName:eventName,date:date,sTime:sTime,eTime:eTime,recurring:recurring,eDate:eDate,description:description,category:category,color:color})
-    console.log("worked?")
-    console.log(this.events[0])
   }
 
 
