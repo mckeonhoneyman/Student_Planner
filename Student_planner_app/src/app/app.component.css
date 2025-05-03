@@ -1,0 +1,30 @@
+.top-bar{
+    display: flex; 
+    justify-content: space-between;
+    padding: 5px;
+    margin-bottom: 50px;
+}
+.floating-menu{
+    border-radius: 10px;
+    position: absolute;
+    top: 100%;
+    z-index: 10;
+    text-shadow: 0cqmax;
+    background: white;
+    border: 1px solid #ccc;
+    min-width: 130px;
+    /*padding: 10px; */
+}
+.dropdown{
+    position: relative;
+}
+.checkbox{
+    padding: 6px;
+    display: flex;
+    justify-content: space-between;
+}
+.checkbox:hover{
+    border-radius: 10px;
+    background: #dadcff;
+    /*color: white;*/
+}

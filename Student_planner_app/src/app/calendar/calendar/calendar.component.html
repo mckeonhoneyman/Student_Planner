@@ -43,6 +43,14 @@
 </div>
 
 
+<div class="week-view-headline">
+  <div class="week-view-headline-control" (click)="goToPreviousWeek()">«</div>
+  <div class="week-view-headline-text">
+    Week of: {{ firstDayOfActiveWeek().monthShort }},
+    {{ weekDates()[0].toFormat('dd') }}
+  </div>
+  <div class="week-view-headline-control" (click)="goToNextWeek()">»</div>
+</div>
 <div class="week-view-container">
   <div class="week-view-header">
     <div class="time-column-header"></div>
@@ -65,7 +73,9 @@
 
 
 <div class="day-view-container">
+  <div class="day-view-headline-control" (click)="goToPreviousDay()">«</div>
   <h2>{{ dayDate().toFormat('cccc, LLLL dd') }}</h2>
+  <div class="day-view-headline-control" (click)="goToNextDay()">»</div>
   <div class="day-view-body">
     <div class="time-slot" *ngFor="let hour of hours">
       <div class="time-label">{{ hour }}</div>
