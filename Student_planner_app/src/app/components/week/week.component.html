@@ -1,0 +1,27 @@
+<div class="week-view-headline">
+    <div class="week-view-headline-control" (click)="goToPreviousWeek()">«</div>
+    <div class="week-view-headline-text">
+      Week of: {{ firstDayOfActiveWeek().monthShort }},
+      {{ weekDates()[0].toFormat('dd') }}
+    </div>
+    <div class="week-view-headline-control" (click)="goToNextWeek()">»</div>
+  </div>
+  <div class="week-view-container">
+    <div class="week-view-header">
+      <div class="time-column-header"></div>
+      <div class="day-header" *ngFor="let date of weekDates()">
+        {{ date.toFormat('ccc L/dd') }}
+      </div>
+    </div>
+    <div class="week-view-body">
+      <div class="time-column">
+        <div class="time-slot" *ngFor="let hour of hours">
+          {{ hour }}
+        </div>
+      </div>
+      <div class="day-column" *ngFor="let date of weekDates()">
+        <div class="time-slot" *ngFor="let hour of hours">      
+        </div>
+      </div>
+    </div>
+  </div>

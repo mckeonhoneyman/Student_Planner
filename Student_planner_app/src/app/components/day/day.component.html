@@ -1,0 +1,11 @@
+<div class="day-view-container">
+    <div class="day-view-headline-control" (click)="goToPreviousDay()">«</div>
+    <h2>{{ dayDate().toFormat('cccc, LLLL dd') }}</h2>
+    <div class="day-view-headline-control" (click)="goToNextDay()">»</div>
+    <div class="day-view-body">
+      <div class="time-slot" *ngFor="let hour of hours">
+        <div class="time-label">{{ hour }}</div>
+        <div class="day-slot"></div> 
+      </div>
+    </div>
+  </div>

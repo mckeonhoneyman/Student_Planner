@@ -1,0 +1,32 @@
+.time-column-header {
+    background-color: #e0e0e0;
+  }
+  
+  .day-header {
+    padding: 10px;
+    border-left: 1px solid #ccc;
+  }
+  
+  .week-view-body {
+    display: grid;
+    grid-template-columns: 80px repeat(7, 1fr);
+    height: 600px;
+  }
+  
+  .time-column {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .day-column {
+    display: flex;
+    flex-direction: column;
+    border-left: 1px solid #ccc;
+  }
+
+  .time-slot {
+    height: 40px;
+    padding: 2px 5px;
+    border-bottom: 1px solid #eee;
+    font-size: 12px;
+  }

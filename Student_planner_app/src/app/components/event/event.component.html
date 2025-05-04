@@ -60,8 +60,8 @@
     <div>
       <button (click)="saveEvent(eName.value,eventdate.value ,startTime.value ,endTime.value,recuring.value,endDate.value,eventDescription.value ,categories.value ,colors.value)">Save</button>
     </div>
-    <!-- for testing if the events are saving propperly
-    <div>{{numOfEvents}}<p *ngFor="let event of events; let i =index; ">{{events[i].category}}</p></div>
-    -->
+    <!-- for testing if the events are saving propperly -->
+    <pre>{{ this.eventsAsString }}</pre>
+    
   </form>
 </div>

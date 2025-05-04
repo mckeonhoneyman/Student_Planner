@@ -1,13 +1,15 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { CalendarComponent } from './calendar/calendar/calendar.component';
+import { CalendarComponent } from './components/calendar/calendar.component';
 import { CommonModule } from '@angular/common';
+import { WeekComponent } from "./components/week/week.component";
+import { DayComponent } from "./components/day/day.component";
 
 // this is essentially acting as our display component
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, CalendarComponent, CommonModule],
+  imports: [RouterOutlet, CalendarComponent, CommonModule, WeekComponent, DayComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

@@ -19,10 +19,10 @@
 
     <!-- decides what view to display based on the selected button -->
     <div *ngIf="selectedView === 'day'">
-        
+        <app-day></app-day>
     </div>
     <div *ngIf="selectedView === 'week'">
-        
+        <app-week></app-week>
     </div>
     <div *ngIf="selectedView === 'month'">
         <calendar></calendar>
