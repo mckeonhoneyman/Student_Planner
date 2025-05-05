@@ -1,11 +1,27 @@
-<div class="day-view-container">
-    <div class="day-view-headline-control" (click)="goToPreviousDay()">«</div>
-    <h2>{{ dayDate().toFormat('cccc, LLLL dd') }}</h2>
-    <div class="day-view-headline-control" (click)="goToNextDay()">»</div>
-    <div class="day-view-body">
-      <div class="time-slot" *ngFor="let hour of hours">
-        <div class="time-label">{{ hour }}</div>
-        <div class="day-slot"></div> 
-      </div>
+<div class="day-view">
+  <h2>{{ dayDate().toLocaleString(DateTime.DATE_HUGE) }}</h2>
+
+  <div class="hour-block" *ngFor="let hour of hours; let i = index">
+    <div class="hour-label">{{ hour }}</div>
+  </div>
+
+  <div class="events-container">
+    <div
+      class="event"
+      *ngFor="
+        let event of calendarService.getEventsForDate(dayDate().toISODate()!)
+      "
+      [ngStyle]="getEventStyle(event)"
+      [style.background-color]="event.color"
+      (click)="onEventClick(event)"
+    >
+      <strong>{{ event.eventName }}</strong>
+      <div>{{ event.sTime }} - {{ event.eTime }}</div>
     </div>
   </div>
+
+  <div class="navigation">
+    <button (click)="goToPreviousDay()">Previous Day</button>
+    <button (click)="goToNextDay()">Next Day</button>
+  </div>
+</div>
