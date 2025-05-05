@@ -2,6 +2,8 @@ import { Component,InputSignal,Signal,WritableSignal,computed,input,signal, } fr
 import { DateTime, Info, Interval } from 'luxon';
 import { CommonModule } from '@angular/common';
 import { CalendarService } from '../../services/calendar.service';
+import { RouterOutlet } from '@angular/router';
+
 
 @Component({
   selector: 'calendar',

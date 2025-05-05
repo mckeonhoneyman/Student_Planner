@@ -2,6 +2,8 @@ import { Component,InputSignal,Signal,WritableSignal,computed,input,signal, } fr
 import { DateTime, Info, Interval } from 'luxon';
 import { CommonModule } from '@angular/common';
 import { CalendarService } from '../../services/calendar.service';
+import { RouterOutlet } from '@angular/router';
+import { Event, EventService } from '../../services/event.service';
 
 @Component({
   selector: 'app-week',
@@ -42,4 +44,5 @@ export class WeekComponent {
   hours: string[] = Array.from({ length: 24 }, (_, i) =>
     DateTime.fromObject({ hour: i }).toFormat('h a')
   );
+
 }

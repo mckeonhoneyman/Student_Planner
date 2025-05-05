@@ -1,32 +1,59 @@
-.time-column-header {
-    background-color: #e0e0e0;
-  }
-  
-  .day-header {
-    padding: 10px;
-    border-left: 1px solid #ccc;
-  }
-  
-  .week-view-body {
-    display: grid;
-    grid-template-columns: 80px repeat(7, 1fr);
-    height: 600px;
-  }
-  
-  .time-column {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .day-column {
-    display: flex;
-    flex-direction: column;
-    border-left: 1px solid #ccc;
-  }
+.day-view {
+  position: relative;
+  max-width: 600px;
+  margin: auto;
+  padding: 1rem;
+}
 
-  .time-slot {
-    height: 40px;
-    padding: 2px 5px;
-    border-bottom: 1px solid #eee;
-    font-size: 12px;
-  }
+.hour-block {
+  height: 50px;
+  border-top: 1px solid #ccc;
+  background-color: rgba(0, 0, 255, 0.05);
+  display: flex;
+  align-items: center;
+}
+
+.hour-label {
+  width: 70px;
+  font-weight: bold;
+  padding-left: px;
+  padding-right: 20px;
+}
+
+.events-container {
+  position: absolute;
+  top: 0;
+  left: 70px;
+  right: 10px;
+}
+
+.event {
+  position: absolute;
+  left: 50px;
+  right: 50px;
+  padding: 0.25rem;
+  border-radius: 4px;
+  text-align: center;
+  color: #000;
+  box-sizing: border-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: transform 0.1s ease-in-out;
+}
+
+.event:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.navigation {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.navigation button {
+  margin: 0 10px;
+  padding: 8px 16px;
+}
