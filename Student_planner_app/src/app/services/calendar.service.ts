@@ -33,10 +33,11 @@ export class CalendarService {
     });
 }
   
-    getEventsForDate(date: string): Event[] {
-    return this.eventService.events().filter(event =>
-      event.date === date
-    );}
+getEventsForDate(date: string): Signal<Event[]> {
+  return computed(() =>
+    this.eventService.events().filter(event => event.date === date)
+  );
+}
   
     getEventsForMonth(month: number): Event[] {
       return this.eventService.eventList().filter((event) => {

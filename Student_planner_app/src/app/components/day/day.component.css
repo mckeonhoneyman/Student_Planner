@@ -3,21 +3,54 @@
   max-width: 600px;
   margin: auto;
   padding: 1rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #ffffff;
+  border: 1px solid #005643;
+  border-radius: 8px;
+}
+.day-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding: 0 1rem;
 }
 
+.day-header h2 {
+  margin: 0;
+  font-size: 1.4rem;
+  color: #003c2e;
+}
+
+.day-header button {
+  padding: 6px 12px;
+  font-size: 16px;
+  background-color: #005643;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.day-header button:hover {
+  background-color: #00725a;
+}
+
+
 .hour-block {
-  height: 50px;
-  border-top: 1px solid #ccc;
-  background-color: rgba(0, 0, 255, 0.05);
+  height: 35px;
   display: flex;
   align-items: center;
+  border-bottom: 1px solid #eee;
+  font-size: 12px;
+  background-color: #f9f9f9;
 }
 
 .hour-label {
   width: 70px;
-  font-weight: bold;
-  padding-left: px;
-  padding-right: 20px;
+  font-weight: 600;
+  text-align: center;
+  color: #555;
 }
 
 .events-container {
@@ -29,31 +62,29 @@
 
 .event {
   position: absolute;
-  left: 50px;
-  right: 50px;
-  padding: 0.25rem;
-  border-radius: 4px;
-  text-align: center;
-  color: #000;
+  border-left: 4px solid black;
+  border-radius: 6px;
+  padding: 6px;
+  background-color: #90caf9;
+  color: #003366;
+  font-size: 12px;
+  font-weight: 500;
   box-sizing: border-box;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  cursor: pointer;
-  transition: transform 0.1s ease-in-out;
-}
 
-.event:hover {
-  transform: scale(1.02);
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-}
-
-.navigation {
-  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
+
+  cursor: pointer;
+  overflow: hidden;
 }
 
-.navigation button {
-  margin: 0 10px;
-  padding: 8px 16px;
+
+.event-content strong {
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 2px;
 }
+

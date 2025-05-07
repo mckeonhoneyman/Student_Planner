@@ -47,26 +47,43 @@ export class DayComponent {
   //alert(`Event: ${event.eventName}\nTime: ${event.sTime} - ${event.eTime}`);
 }
 
-getEventStyle(event: any): any { // Dont Ask why this works, it just does
+getEventStyle(event: Event): any {
   const start = DateTime.fromISO(`${event.date}T${event.sTime}`);
   const end = DateTime.fromISO(`${event.date}T${event.eTime}`);
 
-  const hourHeight = 51; // Match .hour-block height in CSS
-  const startHours = start.hour + start.minute / 60;
-  const endHours = end.hour + end.minute / 60;
+  const offset = 63; // DONT ASK
+  const hourHeight = 35.75; // DONT ASK
 
-  const offset = 86; // Random offset I had to add to make it look good
+const startHours = start.hour + start.minute / 60;
+let endHours = end.hour + end.minute / 60;
 
-  const top = (startHours * hourHeight) + offset;
-  const durationInHours = endHours - startHours;
-  const height = (durationInHours * hourHeight)
+if (end.hour === 0 && end.minute === 0) {
+  endHours = 24;
+}
+
+const top = startHours * hourHeight + offset;
+const height = (endHours - startHours) * hourHeight;
 
   return {
     position: 'absolute',
     top: `${top}px`,
     height: `${height}px`,
-    'background-color': event.color,
-    'border-left': '4px solid rgb(0, 0, 0)',
+    left: '10px',
+    right: '10px',
+    marginInline: '6px',
+
+    'background-color': event.color || '#90caf9',
+    'border-left': '4px solid black',
+    'border-radius': '6px',
+    padding: '6px',
+    overflow: 'hidden',
+    cursor: 'pointer',
+    display: 'flex',
+    'flex-direction': 'column',
+    'align-items': 'center',
+    'justify-content': 'center',
+    'text-align': 'center',
+    'box-sizing': 'border-box',
   };
 }
 }
