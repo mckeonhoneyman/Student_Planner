@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { ChangeDetectorRef, Injectable } from '@angular/core';
 import { signal, WritableSignal, computed, effect } from '@angular/core';
 
 export interface Event {
@@ -19,8 +19,16 @@ const storageKey = 'events';
 @Injectable({ providedIn: 'root' })
 export class EventService {
   private nextId = 0;
+  sidebar = signal<string>('create');
+  tempEvent:Event={
+    id:0,
+  eventName:'',
+  date:'',
+  sTime:'',
+  eTime:''
+  };
 
-  public eventList: WritableSignal<Event[]> = signal(this.loadEvents()); 
+  public eventList: WritableSignal<Event[]> = signal(this.loadEvents());
   events = computed(() => this.eventList());
 
   constructor() {
@@ -45,10 +53,34 @@ export class EventService {
 
   deleteEvent(id: number): void {
     this.eventList.set(this.eventList().filter(e => e.id !== id));
+    this.tempEvent={
+      id:0,
+    eventName:'',
+    date:'',
+    sTime:'',
+    eTime:''
+    };
+    this.backtoCreateEvent()
   }
 
   clearAll(): void {
     this.eventList.set([]);
     this.nextId = 0;
+  }
+
+  viewEvent(event:Event):void{
+    this.tempEvent=event;
+    this.sidebar.set('view');
+   // this.cdRef.detectChanges()
+  }
+  editEvent():void{
+    this.sidebar.set('edit');
+    //this.cdRef.detectChanges()
+  }
+  backtoCreateEvent():void{
+    this.sidebar.set('create');
+  }
+  backtoViewEvent():void{
+    this.sidebar.set("view");
   }
 }
