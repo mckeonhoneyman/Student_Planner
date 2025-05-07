@@ -1,4 +1,5 @@
-<div>
+<section class="left-app"> <!-- Change Name | Also update name in styles.css-->
+  <div>
     <div class="top-bar">
         <div class="dropdown">
             <button (click)="dropdownOpen = !dropdownOpen">Filter</button>
@@ -29,3 +30,16 @@
     </div>
 
 </div>
+</section>
+
+<section class="right-app"> <!-- Change Name | Also update name in styles.css -->
+  <div *ngIf="eventService1.sidebar()=='create'">
+    <eventCreation></eventCreation>
+</div>
+<div *ngIf="eventService1.sidebar()== 'edit'">
+    <eventEdit></eventEdit>
+</div>
+<div *ngIf="eventService1.sidebar()== 'view'">
+    <eventView></eventView>
+</div>
+</section>

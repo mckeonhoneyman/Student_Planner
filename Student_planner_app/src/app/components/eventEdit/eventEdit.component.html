@@ -1,12 +1,13 @@
 <div>
+  <button (click)="eventService.backtoViewEvent()">back</button>
   <form>
-    <h1>Add Event</h1>
-    Name: <input type="text" #eName />
+    <h1>Edit Event</h1>
+    Name: <input type="text" #eName value="{{eventService.tempEvent.eventName}}"/>
     <div>
-      <select #categories>
+      <select #categories [selectedIndex]="selectEventCatagory()">
         <option value="noCategory">Category</option>
-        <option value="work">Work</option>
-        <option value="class">Class</option>
+        <option value="work" >Work</option>
+        <option value="class" >Class</option>
         <option value="homework">Homework</option>
         <option value="test">Test</option>
         <option value="exam">Exam</option>
@@ -18,7 +19,7 @@
       </select>
     </div>
     <div>
-      <select #colors>
+      <select #colors [selectedIndex]="selectEventColor()">
         <option value="noColor">Color</option>
         <option value="red">Red</option>
         <option value="blue">Blue</option>
@@ -31,11 +32,11 @@
         <option value="brown">Brown</option>
       </select>
     </div>
-    <div>Date: <input type="date" #eventdate /></div>
-    <div>Start time: <input type="time" #startTime /></div>
-    <div>End time: <input type="time" #endTime /></div>
+    <div>Date: <input type="date" #eventdate value="{{eventService.tempEvent.date}}" /></div>
+    <div>Start time: <input type="time" #startTime value="{{eventService.tempEvent.sTime}}" /></div>
+    <div>End time: <input type="time" #endTime value="{{eventService.tempEvent.eTime}}"/></div>
     <div>
-      <select #recuring>
+      <select #recuring [selectedIndex]="selectEventRecursion()">
         <option value="recuringPeriod">Recuring Period</option>
         <option value="none">None</option>
         <option value="daily">Daily</option>
@@ -44,16 +45,13 @@
         <option value="monthly">Every Month</option>
       </select>
     </div>
-    <div>End Date: <input type="date" #endDate /></div>
+    <div>End Date: <input type="date" #endDate value="{{eventService.tempEvent.eDate}}"/></div>
     <div>Description:</div>
     <div>
-      <textarea #eventDescription placeholder="(optional)"></textarea>
+      <textarea #eventDescription >{{eventService.tempEvent.description}}</textarea>
     </div>
     <div>
-      <button
-        type="button"
-        (click)="
-          saveEvent(
+      <button type="button"(click)="resaveEvent(
             eName.value,
             eventdate.value,
             startTime.value,
@@ -63,13 +61,11 @@
             eventDescription.value,
             categories.value,
             colors.value
-          )
-        "
-      >
-        Save
-      </button>
+          )">Save</button>
     </div>
     <!-- for testing if the events are saving propperly -->
     <pre>{{ this.eventsAsString }}</pre>
   </form>
 </div>
+<div>{{eventService.sidebar()}}</div>
+<div>{{eventService.tempEvent.category}}{{selectEventCatagory()}}</div>

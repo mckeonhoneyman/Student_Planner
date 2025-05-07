@@ -1,19 +1,19 @@
-import { Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, inject, Input } from '@angular/core';
 //import { RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule,NgForm, NgModel } from '@angular/forms';
 import { EventService } from '../../services/event.service';
 
 @Component({
-  selector: 'app-secondary',
-  templateUrl: './event.component.html',
-  styleUrl: './event.component.css',
+  selector: 'eventView',
+  templateUrl: './eventView.component.html',
+  styleUrl: './eventView.component.css',
   imports: [CommonModule,FormsModule],
   standalone: true
 })
-export class EventComponent {
-  constructor(public eventService: EventService) {}
-
+export class EventView {
+  constructor(public eventService:EventService) {}
+  @Input() sidebar:string = '';
   get eventsAsString(): string {
     const allEvents = this.eventService.events();
     return allEvents
@@ -28,4 +28,5 @@ export class EventComponent {
         eventName, date, sTime, eTime, recurring, eDate, description, category, color
       });
     }
+
 }

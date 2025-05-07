@@ -1,9 +1,10 @@
-import { Component,InputSignal,Signal,WritableSignal,computed,input,signal, } from '@angular/core';
+import { Component,InputSignal,Signal,WritableSignal,computed,Input,signal,inject, NgModule } from '@angular/core';
 import { DateTime, Info, Interval } from 'luxon';
 import { CommonModule } from '@angular/common';
 import { CalendarService } from '../../services/calendar.service';
 import { RouterOutlet } from '@angular/router';
 import { Event, EventService } from '../../services/event.service';
+import { NgModel } from '@angular/forms';
 
 @Component({
   selector: 'app-day',
@@ -15,7 +16,9 @@ export class DayComponent {
 
   DateTime = DateTime; // for use in the template
 
-  constructor(public calendarService: CalendarService) {}
+  constructor(public calendarService: CalendarService, public eventService:EventService) {}
+
+
 
   goToPreviousDay(): void {
     const ref = this.calendarService.activeDay() ?? this.calendarService.today();
@@ -38,8 +41,10 @@ export class DayComponent {
 
   onEventClick(event: Event): void { // Handle event click
     // You can customize this function to do whatever you want with the event
-  console.log('Event clicked:', event);
-  alert(`Event: ${event.eventName}\nTime: ${event.sTime} - ${event.eTime}`);
+    this.eventService.viewEvent(event);
+    //setSidebar('view');
+  //console.log('Event clicked:', event);
+  //alert(`Event: ${event.eventName}\nTime: ${event.sTime} - ${event.eTime}`);
 }
 
 getEventStyle(event: any): any { // Dont Ask why this works, it just does
@@ -52,7 +57,7 @@ getEventStyle(event: any): any { // Dont Ask why this works, it just does
 
   const offset = 86; // Random offset I had to add to make it look good
 
-  const top = (startHours * hourHeight) + offset; 
+  const top = (startHours * hourHeight) + offset;
   const durationInHours = endHours - startHours;
   const height = (durationInHours * hourHeight)
 
