@@ -1,34 +1,35 @@
+
 <section class="left-app"> <!-- Change Name | Also update name in styles.css-->
   <div>
-    <div class="top-bar">
-        <div class="dropdown">
-            <button (click)="dropdownOpen = !dropdownOpen">Filter</button>
-            <div *ngIf="dropdownOpen" class="floating-menu">
-                <label *ngFor="let item of filterItem; let i = index" class="checkbox">
-                    {{ item }}
-                    <input type="checkbox" [checked]="selectedFilter[i]" (change)="toggleSelectedFilter(i)" style="float: right">
-                </label>
-            </div>
+  <div class="top-bar">
+    <div class="view-and-filter">
+      <div class="dropdown">
+        <button class="filter-button" (click)="dropdownOpen = !dropdownOpen">Filter ▾</button>
+        <div *ngIf="dropdownOpen" class="floating-menu">
+          <label *ngFor="let item of filterItem; let i = index" class="checkbox">
+            {{ item }}
+            <input
+              type="checkbox"
+              [checked]="selectedFilter[i]"
+              (change)="toggleSelectedFilter(i)"
+            />
+          </label>
         </div>
-
-        <div class="views">
-            <button (click)="setSelectedView('day')">Day</button>
-            <button (click)="setSelectedView('week')">Week</button>
-            <button (click)="setSelectedView('month')">Month</button>
-        </div>
+      </div>
     </div>
-
-    <!-- decides what view to display based on the selected button -->
-    <div *ngIf="selectedView === 'day'">
-        <app-day></app-day>
+  
+    <div class="view-switch">
+      <button [class.active]="selectedView === 'day'" (click)="setSelectedView('day')">Day</button>
+      <button [class.active]="selectedView === 'week'" (click)="setSelectedView('week')">Week</button>
+      <button [class.active]="selectedView === 'month'" (click)="setSelectedView('month')">Month</button>
     </div>
-    <div *ngIf="selectedView === 'week'">
-        <app-week></app-week>
-    </div>
-    <div *ngIf="selectedView === 'month'">
-        <calendar></calendar>
-    </div>
-
+   </div>
+  
+  <!-- View loader -->
+  <div *ngIf="selectedView === 'day'"><app-day></app-day></div>
+  <div *ngIf="selectedView === 'week'"><app-week></app-week></div>
+  <div *ngIf="selectedView === 'month'"><calendar></calendar></div>
+  
 </div>
 </section>
 
@@ -43,3 +44,6 @@
     <eventView></eventView>
 </div>
 </section>
+
+
+

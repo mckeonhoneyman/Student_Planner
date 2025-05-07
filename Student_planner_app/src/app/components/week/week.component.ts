@@ -8,7 +8,7 @@ import { Event } from '../../services/event.service';
 @Component({
   selector: 'app-week',
   standalone: true,
-  imports: [CommonModule, RouterOutlet],
+  imports: [CommonModule],
   templateUrl: './week.component.html',
   styleUrl: './week.component.css'
 })

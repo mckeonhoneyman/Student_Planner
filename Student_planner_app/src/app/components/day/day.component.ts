@@ -50,8 +50,6 @@ export class DayComponent {
 getEventStyle(event: Event): any {
   const start = DateTime.fromISO(`${event.date}T${event.sTime}`);
   const end = DateTime.fromISO(`${event.date}T${event.eTime}`);
-
-  const offset = 63; // DONT ASK
   const hourHeight = 35.75; // DONT ASK
 
 const startHours = start.hour + start.minute / 60;
@@ -61,7 +59,7 @@ if (end.hour === 0 && end.minute === 0) {
   endHours = 24;
 }
 
-const top = startHours * hourHeight + offset;
+const top = startHours * hourHeight;
 const height = (endHours - startHours) * hourHeight;
 
   return {

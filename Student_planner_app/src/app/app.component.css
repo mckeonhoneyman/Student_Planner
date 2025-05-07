@@ -1,32 +1,57 @@
-.top-bar{
+
+.top-bar {
+
     display: flex;
     justify-content: space-between;
-    padding: 5px;
-    margin-bottom: 20px;
-}
-.floating-menu{
-    border-radius: 10px;
+    align-items: center;
+    padding: 10px 16px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  .view-and-filter {
+    display: flex;
+    align-items: center;
+  }
+  
+  .dropdown {
+    position: relative;
+  }
+  
+  .filter-button {
+    background: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 6px 10px;
+    font-size: 13px;
+    cursor: pointer;
+    background-color: #ffffff;
+  }
+  
+  .filter-button:hover {
+    background-color: #e2e6f0;
+  }
+  
+  .floating-menu {
     position: absolute;
     top: 100%;
-    z-index: 10;
-    text-shadow: 0cqmax;
+    margin-top: 6px;
     background: white;
     border: 1px solid #ccc;
-    min-width: 130px;
-}
-.dropdown{
-    position: relative;
-}
-.checkbox{
-    padding: 6px;
+    border-radius: 6px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    min-width: 140px;
+    z-index: 10;
+    padding: 6px 0;
+  }
+  
+  .checkbox {
     display: flex;
     justify-content: space-between;
-}
-.checkbox:hover{
-    border-radius: 10px;
-    background: #dadcff;
-    /*color: white;*/
-}
+    padding: 6px 12px;
+    font-size: 13px;
+    cursor: pointer;
+  }
+
 .left-app {
   flex: 6;
   background-color: white;
@@ -42,3 +67,36 @@
   border-radius: 8px;
   box-shadow: 0 2px 4px #005643;
 }
+
+
+  
+  .checkbox:hover {
+    background-color: #f0f2ff;
+  }
+  
+  .view-switch {
+    display: flex;
+    gap: 8px;
+  }
+  
+  .view-switch button {
+    padding: 6px 12px;
+    font-size: 13px;
+    border: none;
+    border-radius: 4px;
+    background-color: #e0e0e0;
+    color: #333;
+    cursor: pointer;
+  }
+  
+  .view-switch button:hover {
+    background-color: #d2d2d2;
+  }
+  
+  .view-switch button.active {
+    background-color: #005643;
+    color: #fff;
+    font-weight: 600;
+  }
+  
+
