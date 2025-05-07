@@ -70,6 +70,18 @@
       </button>
     </div>
     <!-- for testing if the events are saving propperly -->
-    <pre>{{ this.eventsAsString }}</pre>
+    <div class="event-list">
+      <div class="event" *ngFor="let event of eventService.events()">
+        <h3 class="event-title">{{ event.eventName }}</h3>
+        <p><strong>Date:</strong> {{ event.date }}</p>
+        <p><strong>Start Time:</strong> {{ event.sTime }}</p>
+        <p><strong>End Time:</strong> {{ event.eTime }}</p>
+        <p *ngIf="event.recurring"><strong>Recurring:</strong> {{ event.recurring }}</p>
+        <p *ngIf="event.eDate"><strong>End Date:</strong> {{ event.eDate }}</p>
+        <p *ngIf="event.description"><strong>Description:</strong> {{ event.description }}</p>
+        <p *ngIf="event.category"><strong>Category:</strong> {{ event.category }}</p>
+        <p *ngIf="event.color"><strong>Color:</strong> <span [style.color]="event.color">{{ event.color }}</span></p>
+      </div>
+    </div>
   </form>
 </div>
