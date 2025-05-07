@@ -23,9 +23,11 @@ export class EventComponent {
       .join('\n\n');
   }
 
+  
   saveEvent(eventName:string,date:string,sTime:string,eTime:string,recurring?:string,eDate?:string,description?:string,category?:string,color?:string): void {
       this.eventService.saveEvent({
         eventName, date, sTime, eTime, recurring, eDate, description, category, color
       });
+      
     }
 }
