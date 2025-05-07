@@ -1,4 +1,9 @@
-
+.calendar-layout {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    gap: 16px;
+  }
 .top-bar {
 
     display: flex;
@@ -52,21 +57,20 @@
     cursor: pointer;
   }
 
-.left-app {
-  flex: 6;
-  background-color: white;
-  padding: 1rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px #005643;
-}
-
-.right-app {
-  flex: 3;
-  background-color: #ffffff;
-  padding: 1rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px #005643;
-}
+  .left-app {
+    flex: 1 1 70%;
+    max-width: 100%;
+  }
+  
+  .right-app {
+    flex: 0 0 30%;
+    max-width: 400px;
+    min-width: 280px;
+    border-left: 1px solid #ccc;
+    background-color: #f9f9f9;
+    padding: 1rem;
+    overflow-y: auto;
+  }
 
 
   

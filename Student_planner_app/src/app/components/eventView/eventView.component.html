@@ -1,26 +1,29 @@
 <div>
-  <button (click)="eventService.backtoCreateEvent()">back</button>
+  <button class="back-button" (click)="eventService.backtoCreateEvent()">Back</button>
   <form>
     <h1>View Event</h1>
-    Name: <input type="text" #eName value="{{eventService.tempEvent.eventName}}" disabled/>
-    <div>
+
+    <div>Name: <input type="text" #eName value="{{eventService.tempEvent.eventName}}" disabled /></div>
+
+    <div>Category:
       <select #categories disabled>
-        <option value="noCategory" *ngIf="eventService.tempEvent.category=='noCategory'||null">Category</option>
-        <option value="work" *ngIf="eventService.tempEvent.category=='work'" >Work</option>
-        <option value="class" *ngIf="eventService.tempEvent.category=='class'" >Class</option>
+        <option value="noCategory" *ngIf="eventService.tempEvent.category=='noCategory'||null">----</option>
+        <option value="work" *ngIf="eventService.tempEvent.category=='work'">Work</option>
+        <option value="class" *ngIf="eventService.tempEvent.category=='class'">Class</option>
         <option value="homework" *ngIf="eventService.tempEvent.category=='homework'">Homework</option>
         <option value="test" *ngIf="eventService.tempEvent.category=='test'">Test</option>
-        <option value="exam" *ngIf="eventService.tempEvent.category=='exam'" >Exam</option>
+        <option value="exam" *ngIf="eventService.tempEvent.category=='exam'">Exam</option>
         <option value="meeting" *ngIf="eventService.tempEvent.category=='meeting'">Meeting</option>
         <option value="clubs" *ngIf="eventService.tempEvent.category=='clubs'">Clubs</option>
         <option value="study" *ngIf="eventService.tempEvent.category=='study'">Study</option>
-        <option value="break" *ngIf="eventService.tempEvent.category=='break'" >Break</option>
-        <option value="other" *ngIf="eventService.tempEvent.category=='other'" >other</option>
+        <option value="break" *ngIf="eventService.tempEvent.category=='break'">Break</option>
+        <option value="other" *ngIf="eventService.tempEvent.category=='other'">Other</option>
       </select>
     </div>
-    <div>
+
+    <div>Color:
       <select #colors disabled>
-        <option value="noColor" *ngIf="eventService.tempEvent.color=='noColor'||null">Color</option>
+        <option value="noColor" *ngIf="eventService.tempEvent.color=='noColor'||null">----</option>
         <option value="red" *ngIf="eventService.tempEvent.color=='red'">Red</option>
         <option value="blue" *ngIf="eventService.tempEvent.color=='blue'">Blue</option>
         <option value="orange" *ngIf="eventService.tempEvent.color=='orange'">Orange</option>
@@ -32,12 +35,14 @@
         <option value="brown" *ngIf="eventService.tempEvent.color=='brown'">Brown</option>
       </select>
     </div>
+
     <div>Date: <input type="date" #eventdate value="{{eventService.tempEvent.date}}" disabled /></div>
     <div>Start time: <input type="time" #startTime value="{{eventService.tempEvent.sTime}}" disabled /></div>
-    <div>End time: <input type="time" #endTime value="{{eventService.tempEvent.eTime}}" disabled/></div>
-    <div>
+    <div>End time: <input type="time" #endTime value="{{eventService.tempEvent.eTime}}" disabled /></div>
+
+    <div>Recurring:
       <select #recuring disabled>
-        <option value="recuringPeriod" *ngIf="eventService.tempEvent.recurring=='recuringPeriod'||null">Recuring Period</option>
+        <option value="recuringPeriod" *ngIf="eventService.tempEvent.recurring=='recuringPeriod'||null">----</option>
         <option value="none" *ngIf="eventService.tempEvent.recurring=='none'">None</option>
         <option value="daily" *ngIf="eventService.tempEvent.recurring=='daily'">Daily</option>
         <option value="weekly" *ngIf="eventService.tempEvent.recurring=='weekly'">Every Week</option>
@@ -45,24 +50,17 @@
         <option value="monthly" *ngIf="eventService.tempEvent.recurring=='monthly'">Every Month</option>
       </select>
     </div>
-    <div>End Date: <input type="date" #endDate value="{{eventService.tempEvent.eDate}}" disabled/></div>
+
+    <div>End Date: <input type="date" #endDate value="{{eventService.tempEvent.eDate}}" disabled /></div>
+
     <div>Description:</div>
     <div>
       <textarea #eventDescription disabled>{{eventService.tempEvent.description}}</textarea>
     </div>
+
     <div>
-      <button
-        type="button" (click)="eventService.editEvent()">
-        Edit
-      </button>
-      <button
-        type="button" (click)="eventService.deleteEvent(eventService.tempEvent.id)">
-        Delete
-      </button>
+      <button type="button" (click)="eventService.editEvent()">Edit</button>
+      <button type="button" (click)="eventService.deleteEvent(eventService.tempEvent.id)">Back</button>
     </div>
-    <!-- for testing if the events are saving propperly
-    <pre>{{ this.eventsAsString }}</pre> -->
   </form>
 </div>
-<div>{{eventService.sidebar()}}</div>
-

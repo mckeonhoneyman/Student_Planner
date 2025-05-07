@@ -1,11 +1,10 @@
 <div>
-  <button (click)="eventService.backtoViewEvent()">back</button>
   <form>
     <h1>Edit Event</h1>
-    Name: <input type="text" #eName value="{{eventService.tempEvent.eventName}}"/>
-    <div>
+    <div>Name: <input type="text" #eName value="{{eventService.tempEvent.eventName}}"/></div>
+    <div>Category:
       <select #categories [selectedIndex]="selectEventCatagory()">
-        <option value="noCategory">Category</option>
+        <option value="noCategory">----</option>
         <option value="work" >Work</option>
         <option value="class" >Class</option>
         <option value="homework">Homework</option>
@@ -18,9 +17,9 @@
         <option value="other">other</option>
       </select>
     </div>
-    <div>
+    <div>Color: 
       <select #colors [selectedIndex]="selectEventColor()">
-        <option value="noColor">Color</option>
+        <option value="noColor">----</option>
         <option value="red">Red</option>
         <option value="blue">Blue</option>
         <option value="orange">Orange</option>
@@ -35,9 +34,9 @@
     <div>Date: <input type="date" #eventdate value="{{eventService.tempEvent.date}}" /></div>
     <div>Start time: <input type="time" #startTime value="{{eventService.tempEvent.sTime}}" /></div>
     <div>End time: <input type="time" #endTime value="{{eventService.tempEvent.eTime}}"/></div>
-    <div>
+    <div>Recuring Period: 
       <select #recuring [selectedIndex]="selectEventRecursion()">
-        <option value="recuringPeriod">Recuring Period</option>
+        <option value="recuringPeriod">----</option>
         <option value="none">None</option>
         <option value="daily">Daily</option>
         <option value="weekly">Every Week</option>
@@ -61,7 +60,11 @@
             eventDescription.value,
             categories.value,
             colors.value
-          )">Save</button>
+          )">Save</button> 
+          <button
+        type="button" (click)="eventService.deleteEvent(eventService.tempEvent.id)">
+        Delete
+      </button>
     </div>
     <!-- for testing if the events are saving propperly -->
     <pre>{{ this.eventsAsString }}</pre>
