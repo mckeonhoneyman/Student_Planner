@@ -28,6 +28,15 @@
         (click)="calendarService.activeDay.set(dayOfMonth)"
       >
         {{ dayOfMonth.day }}
+        <div
+        class="event"
+        *ngFor="let event of getThreeEventsForDay(dayOfMonth)"
+        [ngStyle]="getDayEventStyle(event)"
+        >
+          <div class="event-content">
+            <strong>{{ event.eventName }}</strong>
+          </div>
+        </div>
       </div>
       }
     </div>

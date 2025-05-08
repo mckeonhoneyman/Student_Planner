@@ -3,6 +3,7 @@ import { DateTime, Info, Interval } from 'luxon';
 import { CommonModule } from '@angular/common';
 import { CalendarService } from '../../services/calendar.service';
 import { RouterOutlet } from '@angular/router';
+import { Event, EventService } from '../../services/event.service';
 
 
 @Component({
@@ -14,7 +15,7 @@ import { RouterOutlet } from '@angular/router';
 })
 export class CalendarComponent {
 
-  constructor(public calendarService: CalendarService) {}
+  constructor(public calendarService: CalendarService, public eventService: EventService) {}
 
   get firstDayOfActiveMonth(): WritableSignal<DateTime>{
     return this.calendarService.firstDayOfActiveMonth;
@@ -79,4 +80,30 @@ export class CalendarComponent {
   dayDate: Signal<DateTime> = computed(() => {
     return this.calendarService.activeDay() ?? this.calendarService.today();
   });
+
+  getThreeEventsForDay(date: DateTime): Event[] {
+    return this.calendarService.getEventsForDate(date?.toISODate() ?? "")().slice(0, 3);
+  }
+
+  getDayEventStyle(event: Event): any {
+    
+    return {
+      width: '100%', 
+      'max-width': '100%', 
+      position: 'relative',
+      height: `20px`,
+      'background-color': event.color || '#90caf9',
+      'border-radius': '4px',
+      padding: '1px',
+      overflow: 'hidden',
+      cursor: 'pointer',
+      display: 'block',
+      'flex-direction': 'column',
+      'align-items': 'center',
+      'justify-content': 'center',
+      'text-align': 'center',
+      'box-sizing': 'border-box',
+      'margin-top': '8px',
+    };
+  }
 }
