@@ -49,26 +49,26 @@
     <div>
       <textarea #eventDescription >{{eventService.tempEvent.description}}</textarea>
     </div>
-    <div>
-      <button type="button"(click)="resaveEvent(
-            eName.value,
-            eventdate.value,
-            startTime.value,
-            endTime.value,
-            recuring.value,
-            endDate.value,
-            eventDescription.value,
-            categories.value,
-            colors.value
-          )">Save</button> 
-          <button
-        type="button" (click)="eventService.deleteEvent(eventService.tempEvent.id)">
+    <div class="button-row">
+      <button type="button"
+        (click)="resaveEvent(
+          eName.value,
+          eventdate.value,
+          startTime.value,
+          endTime.value,
+          recuring.value,
+          endDate.value,
+          eventDescription.value,
+          categories.value,
+          colors.value
+        )">Save</button>
+    
+      <button type="button" class="danger"
+        (click)="eventService.deleteEvent(eventService.tempEvent.id)">
         Delete
       </button>
     </div>
-    <!-- for testing if the events are saving propperly -->
-    <pre>{{ this.eventsAsString }}</pre>
+    <!-- for testing if the events are saving propperly 
+    <pre>{{ this.eventsAsString }}</pre> -->
   </form>
 </div>
-<div>{{eventService.sidebar()}}</div>
-<div>{{eventService.tempEvent.category}}{{selectEventCatagory()}}</div>

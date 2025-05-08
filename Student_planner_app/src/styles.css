@@ -1,11 +1,11 @@
 main {
     flex-grow: 1;
-    padding: 2rem;
+    padding: 0rem;
   }
 
   .main-container {
     display: flex;
-    gap: 1rem;
+    gap: 0rem;
     height: 100%;
   }
 

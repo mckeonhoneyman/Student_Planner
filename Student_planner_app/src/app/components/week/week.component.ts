@@ -72,9 +72,13 @@ export class WeekComponent {
     const start = DateTime.fromISO(`${event.date}T${event.sTime}`);
     const end = DateTime.fromISO(`${event.date}T${event.eTime}`);
   
-    const hourHeight = 35.75; // Matches .time-slot height exactly
+    const hourHeight = 35; // Matches .time-slot height exactly
     const startHours = start.hour + start.minute / 60;
-    const endHours = end.hour + end.minute / 60;
+    let endHours = end.hour + end.minute / 60;
+
+if (end.hour === 0 && end.minute === 0) {
+  endHours = 24;
+}
   
     const top = startHours * hourHeight;
     const height = (endHours - startHours) * hourHeight;

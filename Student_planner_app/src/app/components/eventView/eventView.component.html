@@ -1,5 +1,4 @@
 <div>
-  <button class="back-button" (click)="eventService.backtoCreateEvent()">Back</button>
   <form>
     <h1>View Event</h1>
 
@@ -58,9 +57,10 @@
       <textarea #eventDescription disabled>{{eventService.tempEvent.description}}</textarea>
     </div>
 
-    <div>
+    <div class="button-row">
       <button type="button" (click)="eventService.editEvent()">Edit</button>
-      <button type="button" (click)="eventService.deleteEvent(eventService.tempEvent.id)">Back</button>
+      <button type="button" class="secondary" (click)="eventService.backtoCreateEvent()">Back</button>
     </div>
+ 
   </form>
 </div>
