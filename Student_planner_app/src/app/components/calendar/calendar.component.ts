@@ -103,7 +103,7 @@ export class CalendarComponent {
       'justify-content': 'center',
       'text-align': 'center',
       'box-sizing': 'border-box',
-      'margin-top': '8px',
+      'margin-top': '3px',
     };
   }
 }

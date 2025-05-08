@@ -3,7 +3,7 @@ import { DateTime } from 'luxon';
 import { CommonModule } from '@angular/common';
 import { CalendarService } from '../../services/calendar.service';
 import { Router, RouterOutlet } from '@angular/router';
-import { Event } from '../../services/event.service';
+import { Event, EventService } from '../../services/event.service';
 
 @Component({
   selector: 'app-week',
@@ -13,7 +13,7 @@ import { Event } from '../../services/event.service';
   styleUrl: './week.component.css'
 })
 export class WeekComponent {
-  constructor(public calendarService: CalendarService, private router: Router) {}
+  constructor(public calendarService: CalendarService, private router: Router, public eventService: EventService) {}
 
   hours: string[] = Array.from({ length: 24 }, (_, i) =>
     DateTime.fromObject({ hour: i }).toFormat('h a')
@@ -64,8 +64,7 @@ export class WeekComponent {
   
   
   onEventClick(event: Event): void {
-    console.log('Event clicked:', event);
-    alert(`Event: ${event.eventName}\nTime: ${event.sTime} - ${event.eTime}`);
+    this.eventService.viewEvent(event);
   }
   
   getWeekEventStyle(event: Event): any {

@@ -28,5 +28,4 @@ export class EventCreation {
         eventName, date, sTime, eTime, recurring, eDate, description, category, color
       });
     }
-
 }
