@@ -1,7 +1,7 @@
 <div>
   <form>
     <h1>Edit Event</h1>
-    <div>Name: <input type="text" #eName value="{{eventService.tempEvent.eventName}}"/></div>
+    <div>Name: <input type="text" #eName value="{{eventService.tempEvent.eventName}}" required/></div>
     <div>Category:
       <select #categories [selectedIndex]="selectEventCatagory()">
         <option value="noCategory">----</option>
@@ -31,7 +31,7 @@
         <option value="brown">Brown</option>
       </select>
     </div>
-    <div>Date: <input type="date" #eventdate value="{{eventService.tempEvent.date}}" /></div>
+    <div>Date: <input type="date" #eventdate value="{{eventService.tempEvent.date}}" required /></div>
     <div>Start time: <input type="time" #startTime value="{{eventService.tempEvent.sTime}}" /></div>
     <div>End time: <input type="time" #endTime value="{{eventService.tempEvent.eTime}}"/></div>
     <div>Recuring Period: 
