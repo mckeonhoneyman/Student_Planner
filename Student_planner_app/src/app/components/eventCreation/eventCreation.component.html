@@ -2,7 +2,7 @@
   <form>
     <h1>Add Event</h1>
 
-    <div>Name: <input type="text" #eName /></div>
+    <div>Name: <input type="text" #eName required/></div>
 
     <div>Category:
       <select #categories>
@@ -35,7 +35,7 @@
       </select>
     </div>
 
-    <div>Date: <input type="date" #eventdate /></div>
+    <div>Date: <input type="date" #eventdate required /></div>
     <div>Start time: <input type="time" #startTime /></div>
     <div>End time: <input type="time" #endTime /></div>
 
