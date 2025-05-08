@@ -25,16 +25,19 @@
           'calendar-grid-cell-inactive':
             dayOfMonth.month !== firstDayOfActiveMonth().month
         }"
-        (click)="calendarService.activeDay.set(dayOfMonth)"
+        (click)="calendarService.activeDay().toISODate() === dayOfMonth.toISODate()? calendarService.selectedView.set('day') : null;
+        calendarService.activeDay.set(dayOfMonth);"
       >
         {{ dayOfMonth.day }}
-        <div
-        class="event"
-        *ngFor="let event of getThreeEventsForDay(dayOfMonth)"
-        [ngStyle]="getDayEventStyle(event)"
-        >
-          <div class="event-content">
-            <strong>{{ event.eventName }}</strong>
+        <div *ngFor="let event of getThreeEventsForDay(dayOfMonth)">
+          <div
+          class="event"
+          *ngIf="calendarService.eventVisible(event)"
+          [ngStyle]="getDayEventStyle(event)"
+          >
+            <div class="event-content">
+              <strong>{{ event.eventName }}</strong>
+            </div>
           </div>
         </div>
       </div>

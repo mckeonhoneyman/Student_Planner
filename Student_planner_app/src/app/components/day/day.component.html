@@ -12,16 +12,18 @@
     </div>
 
     <div class="events-container">
-      <div
-        class="event"
-        *ngFor="let event of calendarService.getEventsForDate(dayDate().toISODate()!)()"
-        [ngStyle]="getEventStyle(event)"
-        [style.background-color]="event.color"
-        (click)="onEventClick(event)"
-      >
-        <div class="event-content">
-          <strong>{{ event.eventName }}</strong>
-          <div>{{ event.sTime }} - {{ event.eTime }}</div>
+      <div *ngFor="let event of calendarService.getEventsForDate(dayDate().toISODate()!)()">
+        <div
+          class="event"
+          *ngIf="calendarService.eventVisible(event)"
+          [ngStyle]="getEventStyle(event)"
+          [style.background-color]="event.color"
+          (click)="onEventClick(event)"
+        >
+          <div class="event-content">
+            <strong>{{ event.eventName }}</strong>
+            <div>{{ event.sTime }} - {{ event.eTime }}</div>
+          </div>
         </div>
       </div>
     </div>

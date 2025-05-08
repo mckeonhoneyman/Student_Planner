@@ -61,6 +61,10 @@ html, body {
   }
   
   .filter-button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 140px;
     background-color: #ffffff;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -76,7 +80,7 @@ html, body {
   .floating-menu {
     position: absolute;
     top: 100%;
-    margin-top: 6px;
+    margin-top: 0px;
     background: white;
     border: 1px solid #ccc;
     border-radius: 6px;

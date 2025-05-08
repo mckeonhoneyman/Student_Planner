@@ -8,6 +8,7 @@ import { EventCreation } from './components/eventCreation/eventCreation.componen
 import { EventView } from './components/eventView/eventView.component';
 import { EventEdit } from './components/eventEdit/eventEdit.component';
 import { EventService } from './services/event.service';
+import { CalendarService } from './services/calendar.service';
 
 // this is essentially acting as our display component
 @Component({
@@ -18,22 +19,13 @@ import { EventService } from './services/event.service';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
+  constructor(public calendarService: CalendarService){}
+
   eventService1 = inject(EventService);
   title = 'Student_planner_app';
-  selectedView = "month";
   sidebar='create'
 
-  filterItem = ['Work', 'Class', 'Homework', 'Test', 'Exam', 'Meeting', 'Clubs', 'Study', 'Break', 'Other'];
-  selectedFilter = [false, false, false, false, false, false, false, false, false, false];
   dropdownOpen = false;
-
-  toggleSelectedFilter(index: number){
-    this.selectedFilter[index] = !this.selectedFilter[index];
-  }
-
-  setSelectedView(view: string){
-    this.selectedView = view;
-  }
 
   setSidebar(){
     this.sidebar=this.eventService1.sidebar();
