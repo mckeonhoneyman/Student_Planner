@@ -1,16 +1,18 @@
 form {
     background-color: #ffffff;
     border: 1px solid #ccc;
-    border-radius: 8px;
-    padding: 1.5rem;
+    border-radius: 20px;
+    padding: 1.25rem;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    max-width: 100%;
   }
   
   form h1 {
     font-size: 1.5rem;
-    margin-bottom: 1.25rem;
+    margin-bottom: 1.5rem;
     color: #003c2e;
+    text-align: center;
   }
   
   form div {
@@ -30,7 +32,7 @@ form {
     width: calc(100% - 12px);
     border: 1px solid #ccc;
     border-radius: 4px;
-    background-color: #f5f5f5;
+    background-color: #f4f4f4;
     box-sizing: border-box;
     display: inline-block;
   }
@@ -41,33 +43,34 @@ form {
     resize: vertical;
   }
   
-  button {
+  .button-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+  
+  .button-row button {
+    width: 48%;
     padding: 8px 14px;
-    margin-right: 10px;
     background-color: #005643;
     color: white;
     border: none;
     border-radius: 4px;
-    cursor: pointer;
     font-size: 14px;
+    cursor: pointer;
     transition: background-color 0.2s ease;
   }
   
-  button:hover {
+  .button-row button:hover {
     background-color: #00725a;
   }
   
-  .back-button {
-    margin-bottom: 1rem;
-    padding: 6px 12px;
-    background-color: #ccc;
-    color: #333;
-    border-radius: 4px;
-    border: none;
-    cursor: pointer;
+  .button-row .secondary {
+    background-color: #888;
   }
   
-  .back-button:hover {
-    background-color: #bbb;
+  .button-row .secondary:hover {
+    background-color: #666;
   }
   

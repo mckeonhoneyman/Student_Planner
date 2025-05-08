@@ -50,7 +50,7 @@ export class DayComponent {
 getEventStyle(event: Event): any {
   const start = DateTime.fromISO(`${event.date}T${event.sTime}`);
   const end = DateTime.fromISO(`${event.date}T${event.eTime}`);
-  const hourHeight = 35.75; // DONT ASK
+  const hourHeight = 35; // DONT ASK
 
 const startHours = start.hour + start.minute / 60;
 let endHours = end.hour + end.minute / 60;
