@@ -44,7 +44,7 @@
         <option value="monthly">Every Month</option>
       </select>
     </div>
-    <div>End Date: <input type="date" #endDate value="{{eventService.tempEvent.eDate}}"/></div>
+    <div>End Date: <input type="date" #endDate value="{{eventService.tempEvent.eDate}}" min="{{eventdate.value}}"/></div>
     <div>Description:</div>
     <div>
       <textarea #eventDescription >{{eventService.tempEvent.description}}</textarea>
