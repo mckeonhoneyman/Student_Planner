@@ -32,8 +32,8 @@
       </select>
     </div>
     <div>Date: <input type="date" #eventdate value="{{eventService.tempEvent.date}}" required /></div>
-    <div>Start time: <input type="time" #startTime value="{{eventService.tempEvent.sTime}}" /></div>
-    <div>End time: <input type="time" #endTime value="{{eventService.tempEvent.eTime}}"/></div>
+    <div>Start time: <input type="time" #startTime value="{{eventService.tempEvent.sTime}}" required /></div>
+    <div>End time: <input type="time" #endTime value="{{eventService.tempEvent.eTime}}" required /></div>
     <div>Recuring Period: 
       <select #recuring [selectedIndex]="selectEventRecursion()">
         <option value="recuringPeriod">----</option>
